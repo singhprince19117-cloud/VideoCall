@@ -403,7 +403,12 @@ export default function VideoMeetComponent() {
                             {video ? (
                                 <Box
                                     component="video"
-                                    ref={localVideoref}
+                                    ref={(ref) => {
+                                        localVideoref.current = ref;
+                                        if (ref && window.localStream) {
+                                            ref.srcObject = window.localStream;
+                                        }
+                                    }}
                                     autoPlay
                                     muted
                                     sx={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scaleX(-1)' }}
@@ -595,7 +600,12 @@ export default function VideoMeetComponent() {
                             <Box sx={{ position: 'relative' }}>
                                 <Box
                                     component="video"
-                                    ref={localVideoref}
+                                    ref={(ref) => {
+                                        localVideoref.current = ref;
+                                        if (ref && window.localStream) {
+                                            ref.srcObject = window.localStream;
+                                        }
+                                    }}
                                     autoPlay
                                     muted
                                     sx={{
