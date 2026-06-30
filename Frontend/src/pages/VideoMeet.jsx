@@ -23,8 +23,9 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
 import ShareIcon from '@mui/icons-material/Share';
+import server from "../environment.js";
 
-const server_url = "http://localhost:3000";
+const server_url = server;
 var connections = {};
 const peerConfigConnections = {
     "iceServers": [{ "urls": "stun:stun.l.google.com:19302" }]
